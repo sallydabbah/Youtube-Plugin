@@ -1,0 +1,17 @@
+%regularText {
+  font-family: Helvetica;
+}
+
+.fontElementMap {
+  @extend %regularText;
+}
+
+:global {
+  %glob_regularText {
+    font-family: Helvetica;
+  }
+
+  .glob_fontElementMap {
+    @extend %glob_regularText;
+  }
+}
