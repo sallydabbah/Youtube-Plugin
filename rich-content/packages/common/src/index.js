@@ -29,6 +29,7 @@ export { default as FocusManager } from './Components/FocusManager';
 export { default as Image } from './Components/Image';
 export { default as Loader } from './Components/Loader';
 export { default as InputWithLabel } from './Components/InputWithLabel';
+export { default as VideoDetails } from './Components/VideoDetails';
 export { default as LinkButton } from './Components/LinkButton';
 export { default as LinkPanel } from './Components/LinkPanel';
 export { default as LinkPanelContainer } from './Components/LinkPanelContainer';

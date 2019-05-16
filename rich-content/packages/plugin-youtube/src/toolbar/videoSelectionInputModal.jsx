@@ -1,5 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { Scrollbars } from 'react-custom-scrollbars';
+import InfiniteScroll from 'react-infinite-scroller';
+import MDSpinner from 'react-md-spinner';
 import {
   mergeStyles,
   isVideoUrl,
@@ -7,6 +10,7 @@ import {
   CloseIcon,
   Button,
   WixUtils,
+  VideoDetails
 } from 'wix-rich-content-common';
 import styles from '../../statics/styles/video-selection-input-modal.scss';
 
@@ -93,6 +97,36 @@ export default class VideoSelectionInputModal extends Component {
     const { url, submitted, errorMsg } = this.state;
     const { t, handleFileSelection, enableCustomUploadOnMobile } = this.props;
     const { styles } = this;
+    let divStyle = {
+      position: 'absolute',
+      width: 'calc(100% - 21px)',
+      left: '18px',
+      bottom: '0px',
+      height: 'calc(100% - 210px)',
+      overflow: 'auto',
+      paddingRight: '6px',
+      }
+      let more={
+        marginTop: '20px',
+        textAlign: 'center'
+      }
+      let empty_modal={
+        position: 'absolute',
+        top: 'calc(50% - 17px)',
+        left: 'calc(50% - 17px)',
+        transform: 'translateX(-50%) translateY(-50%)',
+
+    }
+    const loader = (
+      <div
+        style={more
+        }
+      >
+        <MDSpinner borderSize={1.5} singleColor="#000000" />
+      </div>
+    );
+
+
     const uploadVideoSection = (
       <div>
         <div className={styles.video_modal_or_upload_video_from}>
@@ -178,7 +212,50 @@ export default class VideoSelectionInputModal extends Component {
             handleFileSelection &&
             uploadVideoSection}
         </div>
+       
+        <div style={divStyle}>
+
+          <Scrollbars
+            renderThumbVertical={
+              () => <div style={
+                {
+                  background: '#000000',
+                  borderRadius: '4px',
+                  width: '4px',
+                  marginLeft: '-2px'
+                }} />}
+            style={{ height: '100%' }}
+          >
+
+
+            <InfiniteScroll
+              pageStart={0}
+              loadMore={null}
+              hasMore={true}
+              loader={loader}
+              useWindow={false}
+              style={{ height: '100%' }}
+            >
+              <VideoDetails></VideoDetails>
+              <VideoDetails></VideoDetails>
+
+              <VideoDetails></VideoDetails>
+              <VideoDetails></VideoDetails>
+
+              <VideoDetails></VideoDetails>
+              <VideoDetails></VideoDetails>
+
+              <VideoDetails></VideoDetails>
+              <VideoDetails></VideoDetails>
+            </InfiniteScroll>
+
+
+
+          </Scrollbars>
+        </div>
+
       </div>
+
     );
   }
 }
