@@ -1,0 +1,24 @@
+.inlineStyleDropdownButton {
+  white-space: nowrap;
+  margin: 0 !important;
+}
+
+.inlineStyleDropdownButton_wrapper {
+  position: relative;
+  margin-right: 10px;
+  padding: 10px 0;
+  display: block;
+}
+
+.inlineStyleDropdownButton_icon {
+  outline: none;
+}
+
+.inlineStyleDropdown_options {
+  position: absolute;
+  top: 10px;
+  padding: 0 3px;
+  background: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 0 4px 0 rgba(0, 0, 0, 0.1);
+  z-index: 7;
+}
